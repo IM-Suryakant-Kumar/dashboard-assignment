@@ -14,10 +14,14 @@ config();
 const app = express();
 
 // middleware
+const CLIENT_URL: string = process.env.CLIENT_URL
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
-app.use(cors());
+app.use(cors({
+    origin: CLIENT_URL,
+    credentials: true
+}));
 
 // router
 app.use("/auth", authRouter)

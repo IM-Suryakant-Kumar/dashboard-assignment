@@ -22,7 +22,6 @@ const router = createBrowserRouter(
 			<Route
 				path="host"
 				element={<HostLayout />}>
-				R
 			</Route>
 			<Route
 				path="/login"

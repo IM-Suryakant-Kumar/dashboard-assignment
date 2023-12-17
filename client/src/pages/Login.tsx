@@ -30,7 +30,7 @@ const Login = () => {
 	return (
 		<Container>
 			<Wrapper>
-				<Title>Login</Title>
+				<Title>LogIn</Title>
 				<Form onSubmit={handleSubmit}>
 					<Input
 						type="email"

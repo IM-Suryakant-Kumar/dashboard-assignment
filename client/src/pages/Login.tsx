@@ -15,7 +15,7 @@ import IUser from "../types/user";
 const Login = () => {
 	const { loginUser } = useUser();
 	const navigate = useNavigate();
-    const [searchParams] = useSearchParams()
+	const [searchParams] = useSearchParams();
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
@@ -23,7 +23,7 @@ const Login = () => {
 		const email = formData.get("email") as string;
 		const password = formData.get("password") as string;
 		await loginUser({ email, password } as IUser);
-        const pathname = searchParams.get("redirectTo") || "/host";
+		const pathname = searchParams.get("redirectTo") || "/host";
 		navigate(pathname, { replace: true });
 	};
 
@@ -36,6 +36,7 @@ const Login = () => {
 						type="email"
 						name="email"
 						placeholder="Email"
+                        required
 					/>
 					<Input
 						type="password"
@@ -43,6 +44,7 @@ const Login = () => {
 						placeholder="password"
 						minLength={3}
 						maxLength={8}
+                        required
 					/>
 					<Button>Login</Button>
 				</Form>

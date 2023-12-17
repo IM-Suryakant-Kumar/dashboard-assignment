@@ -36,16 +36,22 @@ const Signup = () => {
 						type="text"
 						name="name"
 						placeholder="name"
+                        minLength={3}
+                        required
 					/>
 					<Input
 						type="email"
 						name="email"
 						placeholder="Email"
+                        required
 					/>
 					<Input
 						type="password"
 						name="password"
 						placeholder="password"
+                        minLength={3}
+                        maxLength={8}
+                        required
 					/>
 					<Button>Login</Button>
 				</Form>

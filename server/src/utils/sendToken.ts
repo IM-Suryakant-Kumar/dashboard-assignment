@@ -7,7 +7,7 @@ const sendToken = (
 	statusCode: number,
 	message: string,
 ) => {
-	const token = user.createJWTToken();
+	const token: string = user.createJWTToken();
 
 	const COOKIE_LIFETIME: number = parseInt(process.env.COOKIE_LIFETIME, 10);
 	res.status(statusCode)
@@ -15,6 +15,7 @@ const sendToken = (
 			expires: new Date(
 				Date.now() * COOKIE_LIFETIME * 24 * 60 * 60 * 1000,
 			),
+            httpOnly: true
 		})
 		.json({
 			success: true,

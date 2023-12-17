@@ -39,7 +39,7 @@ userSchema.methods.comparePassword = async function (
 	return bcrypt.compare(candidatePassword, this.password);
 };
 
-userSchema.methods.CreateJWTToken = function () {
+userSchema.methods.createJWTToken = function () {
 	const JWT_SECRET: string = process.env.JWT_SECRET;
 	const JWT_LIFETIME: string = process.env.JWT_LIFETIME;
 

@@ -1,7 +1,7 @@
 import { IError } from "error";
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 
-const errorHanlderMiddleware = (err: IError, req: Request, res: Response) => {
+const errorHanlderMiddleware = (err: IError, req: Request, res: Response, next: NextFunction) => {
     const customError = {
         statusCode: err.statusCode || 500,
         message: err.message || "Something went wrong, please try again!"

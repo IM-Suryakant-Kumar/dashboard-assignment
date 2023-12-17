@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
 import express, { Request, Response } from "express";
+import connectDB from "./db";
 import notFoundMiddleware from "./middlewares/not-found";
 import errorHanlderMiddleware from "./middlewares/error-handler";
 // router
@@ -41,6 +42,8 @@ app.use(errorHanlderMiddleware);
 const PORT: number = parseInt(process.env.PORT, 10) || 4000;
 const start = async () => {
 	try {
+        const MONGO_URL: string = process.env.MONGO_URL
+        await connectDB(MONGO_URL)
 		app.listen(PORT, () =>
 			console.log(`Server is listen on port ${PORT}...`),
 		);

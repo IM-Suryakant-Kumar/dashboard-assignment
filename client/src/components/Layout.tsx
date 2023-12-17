@@ -1,12 +1,15 @@
-import { Outlet } from "react-router"
-import { Container } from "../styles/layout.css"
+import { Outlet } from "react-router";
+import { Container } from "../styles/layout.css";
+import MainContextProvider from "../context";
 
 const Layout = () => {
-  return (
-    <Container>
-        <Outlet />
-    </Container>
-  )
-}
+	return (
+		<MainContextProvider>
+			<Container>
+				<Outlet />
+			</Container>
+		</MainContextProvider>
+	);
+};
 
-export default Layout
+export default Layout;

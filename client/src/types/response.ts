@@ -1,6 +1,9 @@
+import IUser from "./user";
+
 export interface IApiData {
 	success: boolean;
 	message: string;
+    user: IUser;
 }
 
 export interface SuccessResponse {

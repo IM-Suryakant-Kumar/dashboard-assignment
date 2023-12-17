@@ -1,35 +1,46 @@
 import {
-	RouterProvider,
 	createBrowserRouter,
 	createRoutesFromElements,
+	Navigate,
 	Route,
+	RouterProvider,
 } from "react-router-dom";
 import Layout from "./components/Layout";
+import HostLayout from "./components/HostLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 
-function App() {
-	const router = createBrowserRouter(
-		createRoutesFromElements(
+const router = createBrowserRouter(
+	createRoutesFromElements(
+		<Route
+			path="/"
+			element={<Layout />}>
 			<Route
-				path="/"
-				element={<Layout />}>
-				<Route
-					path="/login"
-					element={<Login />}
-				/>
-				<Route
-					path="/signup"
-					element={<Signup />}
-				/>
-				<Route
-					path="*"
-					element={<h1>404 - PAGE NOT FOUND</h1>}
-				/>
-			</Route>,
-		),
-	);
+				index
+				element={<Navigate to="host" />}
+			/>
+			<Route
+				path="host"
+				element={<HostLayout />}>
+				R
+			</Route>
+			<Route
+				path="/login"
+				element={<Login />}
+			/>
+			<Route
+				path="/signup"
+				element={<Signup />}
+			/>
+			<Route
+				path="*"
+				element={<h1>404 - PAGE NOT FOUND</h1>}
+			/>
+		</Route>,
+	),
+);
 
+function App() {
 	return <RouterProvider router={router} />;
 }
 

@@ -1,3 +1,4 @@
+import { useUser } from "../context";
 import {
 	Button,
 	Container,
@@ -7,14 +8,30 @@ import {
 	Title,
 	Wrapper,
 } from "../styles/signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import IUser from "../types/user";
 
 const Signup = () => {
+	const { signupUser } = useUser();
+	const navigate = useNavigate();
+	const [searchParams] = useSearchParams();
+
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		const formData = new FormData(e.currentTarget);
+		const name = formData.get("name") as string;
+		const email = formData.get("email") as string;
+		const password = formData.get("password") as string;
+		await signupUser({ name, email, password } as IUser);
+		const pathname = searchParams.get("redirectTo") || "/host";
+		navigate(pathname, { replace: true });
+	};
+
 	return (
 		<Container>
 			<Wrapper>
 				<Title>SignUp</Title>
-				<Form>
+				<Form onSubmit={handleSubmit}>
 					<Input
 						type="text"
 						name="name"
@@ -33,8 +50,7 @@ const Signup = () => {
 					<Button>Login</Button>
 				</Form>
 				<Subtitle>
-					
-                    Already have an account? <Link to="/login">Login</Link>
+					Already have an account? <Link to="/login">Login</Link>
 				</Subtitle>
 			</Wrapper>
 		</Container>

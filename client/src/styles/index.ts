@@ -16,6 +16,11 @@ const GlobalStyle = createGlobalStyle`
         /* font-family: 'Cinzel', serif; */
         font-family: 'Fira Sans', sans-serif;
     }
+
+    a {
+        text-decoration: none;
+        color: var(--logo-color);
+    }
 `;
 
 export default GlobalStyle;

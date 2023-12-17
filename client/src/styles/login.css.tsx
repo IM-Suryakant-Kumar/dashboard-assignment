@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
 
 export const Title = styled.h2`
 	font-family: "Cinzel", serif;
+    font-weight: bolder;
 	text-align: center;
     color: var(--logo-color);
 `;
@@ -44,4 +45,10 @@ export const Button = styled.button`
     text-transform: uppercase;
     font-weight: bolder;
     cursor: pointer;
+`
+
+export const Subtitle = styled.p`
+    text-align: center;
+    margin-top: 0.5em;
+    font-size: 0.875rem;
 `

@@ -1,5 +1,13 @@
 import { Form } from "react-router-dom";
-import { Button, Container, Input, Title, Wrapper } from "../styles/login.css";
+import {
+	Button,
+	Container,
+	Input,
+	Subtitle,
+	Title,
+	Wrapper,
+} from "../styles/login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
 	return (
@@ -17,8 +25,11 @@ const Login = () => {
 						name="password"
 						placeholder="password"
 					/>
-                    <Button>Signup</Button>
+					<Button>Login</Button>
 				</Form>
+				<Subtitle>
+					Already have an account? <Link to="signup">Signup</Link>
+				</Subtitle>
 			</Wrapper>
 		</Container>
 	);

@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
 import express, { Request, Response } from "express";
+import cookieParser from "cookie-parser";
 import connectDB from "./db";
 import notFoundMiddleware from "./middlewares/not-found";
 import errorHanlderMiddleware from "./middlewares/error-handler";
@@ -22,6 +23,7 @@ app.use(cors({
     origin: CLIENT_URL,
     credentials: true
 }));
+app.use(cookieParser())
 
 // router
 app.use("/auth", authRouter)

@@ -6,4 +6,7 @@ export interface IUser {
 	password: string;
 }
 
-export interface IUserDocument extends IUser, Document {}
+export interface IUserDocument extends IUser, Document {
+	createJWTToken: () => string;
+	comparePassword: (candidatePassword: string) => Promise<boolean>;
+}

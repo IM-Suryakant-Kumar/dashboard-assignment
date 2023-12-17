@@ -16,7 +16,11 @@ const sendToken = (
 				Date.now() * COOKIE_LIFETIME * 24 * 60 * 60 * 1000,
 			),
 		})
-		.json({ success: true, message });
+		.json({
+			success: true,
+			message,
+			user: { name: user.name, email: user.email },
+		});
 };
 
 export default sendToken;

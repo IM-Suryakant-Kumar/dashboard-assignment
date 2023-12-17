@@ -6,15 +6,20 @@ import {
 	Subtitle,
 	Title,
 	Wrapper,
-} from "../styles/login.css";
+} from "../styles/signup.css";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
 	return (
 		<Container>
 			<Wrapper>
-				<Title>Login</Title>
+				<Title>SignUp</Title>
 				<Form>
+					<Input
+						type="text"
+						name="name"
+						placeholder="name"
+					/>
 					<Input
 						type="email"
 						name="email"
@@ -28,11 +33,12 @@ const Login = () => {
 					<Button>Login</Button>
 				</Form>
 				<Subtitle>
-					Don't have any account? <Link to="/signup">Signup</Link>
+					
+                    Already have an account? <Link to="/login">Login</Link>
 				</Subtitle>
 			</Wrapper>
 		</Container>
 	);
 };
 
-export default Login;
+export default Signup;

@@ -3,6 +3,7 @@ import { config } from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
 import express, { Request, Response } from "express";
+import cookieParser from "cookie-parser";
 import connectDB from "./db";
 import notFoundMiddleware from "./middlewares/not-found";
 import errorHanlderMiddleware from "./middlewares/error-handler";
@@ -14,10 +15,15 @@ config();
 const app = express();
 
 // middleware
+const CLIENT_URL: string = process.env.CLIENT_URL
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
-app.use(cors());
+app.use(cors({
+    origin: CLIENT_URL,
+    credentials: true
+}));
+app.use(cookieParser())
 
 // router
 app.use("/auth", authRouter)
